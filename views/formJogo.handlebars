@@ -1,0 +1,27 @@
+<!-- Definindo se é um form de atualização ou de cadastro -->
+{{#if jogo}}
+  <h1>Atualizar Jogo</h1>
+  <form action="/jogos/{{jogo.id}}/update" method="post">
+{{else}}
+  <h1> Cadastrar Jogo</h1>
+  <form action="/jogos/novo" method="post">
+{{/if}}
+
+  <div>
+    <label for="nome">Título</label>
+    <input type="text" id="titulo" name="titulo" value="{{jogo.titulo}}" />
+  </div>
+  <div>
+    <label for="descricao">Descricao</label>
+    <input type="text" id="descricao" name="descricao" value="{{jogo.descricao}}" />
+  </div>
+  <div>
+    <label for="preco">Preço</label>
+    <input type="text" id="preco" name="preco" value="{{jogo.preco}}" />
+  </div>
+  {{#if jogo}}
+    <input type="submit" value="Atualizar">
+  {{else}}
+    <input type="submit" value="Cadastrar" />
+  {{/if}}
+</form>
